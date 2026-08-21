@@ -515,57 +515,54 @@ export function ReservationProvider({
          * ==========================
          */
 
-        const editToken =
-          crypto.randomUUID();
+       const editToken =
+  crypto.randomUUID();
 
-        const {
-          data,
-          error,
-        } =
-          await supabase
-            .from(
-              "reservations"
-            )
-            .insert({
-              name:
-                name.trim(),
+const response =
+  await fetch(
+    "/api/reservations/create",
+    {
+      method: "POST",
 
-              email:
-                email.trim(),
+      headers: {
+        "Content-Type":
+          "application/json",
+      },
 
-              phone:
-                phone.trim(),
+      body: JSON.stringify({
+        name:
+          name.trim(),
 
-              people,
+        email:
+          email.trim(),
 
-              meat_count:
-                meatCount,
+        phone:
+          phone.trim(),
 
-              vegetarian_count:
-                vegetarianCount,
+        people,
 
-              total,
+        meatCount,
 
-              payment_status:
-                "pending",
+        vegetarianCount,
 
-              edit_token:
-                editToken,
-            })
-            .select(
-              "id"
-            )
-            .single();
+        editToken,
+      }),
+    }
+  );
 
-        if (error) {
-          throw error;
-        }
+const result =
+  await response.json();
 
-        if (!data) {
-          throw new Error(
-            "No se pudo obtener el ID de la reserva."
-          );
-        }
+if (!response.ok) {
+  throw new Error(
+    result?.error ||
+      "No se pudo crear la reserva."
+  );
+}
+
+const data = {
+  id: result.id,
+};
 
         const created: CreatedReservation =
           {
