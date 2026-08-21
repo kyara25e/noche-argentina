@@ -4,11 +4,9 @@ import { useState } from "react";
 
 import LanguageSelector from "@/components/LanguageSelector";
 
-import ReservationForm, {
-  ReservationProvider,
-  ReservationSelector,
-} from "@/components/ReservationForm";
-
+import ReservationForm from "@/components/reservation/ReservationForm";
+import ReservationSelector from "@/components/reservation/ReservationSelector";
+import { ReservationProvider } from "@/components/reservation/ReservationProvider";
 import {
   translations,
   type Language,
@@ -25,7 +23,6 @@ export default function Home() {
     <ReservationProvider>
       <main className="min-h-screen bg-[#f5f0e8] text-[#181818]">
 
-        {/* HERO */}
         <section
           id="inicio"
           className="relative min-h-[720px] bg-cover bg-center text-white"
@@ -76,7 +73,6 @@ export default function Home() {
 
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-16 lg:grid-cols-[1.25fr_.75fr]">
 
-            {/* LEFT */}
             <div>
               <h1 className="max-w-2xl font-serif text-6xl font-black leading-[0.95] md:text-8xl">
                 {t.title}
@@ -105,14 +101,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RESERVATION SELECTOR */}
             <ReservationSelector
               t={t}
             />
           </div>
         </section>
 
-        {/* MENU */}
         <section
           id="menu"
           className="mx-auto max-w-7xl px-6 py-16"
@@ -168,12 +162,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RESERVATION FORM */}
         <ReservationForm
           t={t}
         />
 
-        {/* EVENT INFO */}
         <section
           id="info"
           className="bg-[#f5f0e8] py-20"
@@ -230,7 +222,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FOOTER */}
         <footer className="bg-[#171717] px-6 py-8 text-center text-sm text-white/60">
           <p>
             Noche Argentina ·

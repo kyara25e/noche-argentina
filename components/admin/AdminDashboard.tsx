@@ -164,6 +164,31 @@ export default function AdminDashboard() {
     );
   };
 
+  const markAsPaid = async (id: string) => {
+  const { error } = await supabase
+    .from("reservations")
+    .update({
+      payment_status: "paid",
+    })
+    .eq("id", id);
+
+  if (error) {
+    console.error("Error actualizando pago:", error);
+    return;
+  }
+
+  setReservations((current) =>
+    current.map((reservation) =>
+      reservation.id === id
+        ? {
+            ...reservation,
+            payment_status: "paid",
+          }
+        : reservation
+    )
+  );
+};
+
   if (loading) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#f5f0e8]">
@@ -369,17 +394,25 @@ export default function AdminDashboard() {
                         </td>
 
                         <td className="px-5 py-4">
-                          <PaymentBadge
-                            status={
-                              reservation.payment_status
-                            }
-                            paidText={
-                              t.paidStatus
-                            }
-                            pendingText={
-                              t.pendingStatus
-                            }
-                          />
+                          <div className="flex flex-col items-start gap-2">
+                            <PaymentBadge
+                                status={reservation.payment_status}
+                                paidText={t.paidStatus}
+                                pendingText={t.pendingStatus}
+                            />
+
+                            {reservation.payment_status === "pending" && (
+                                <button
+                                type="button"
+                                onClick={() => markAsPaid(reservation.id)}
+                                className="rounded-lg bg-green-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-green-700"
+                                >
+                                {language === "es"
+                                    ? "Marcar como pagada"
+                                    : "Mark as paid"}
+                                </button>
+                            )}
+                            </div>
                         </td>
                       </tr>
                     )

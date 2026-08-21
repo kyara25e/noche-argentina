@@ -58,6 +58,21 @@ export const translations = {
     contact: "Contacto",
     eventType: "Evento gastronómico argentino",
     priceInfo: "€20 por persona · Reserva previa obligatoria",
+
+    reservationCreatedTitle: "Reserva creada",
+    reservationAlmostReady: "¡Tu reserva está casi lista!",
+    reservationRegistered:
+    "Tu reserva quedó registrada. Para confirmarla, completá ahora el pago con Tikkie.",
+    payWithTikkie: "Pagar",
+    withTikkie: "con Tikkie",
+    paymentPending: "Estado actual: pendiente de pago",
+
+    selectDishesTotal: "Debes seleccionar",
+    dishesInTotal: "platos en total.",
+    currentlySelected: "Actualmente seleccionaste",
+    stillMissing: "Te faltan",
+
+    editReservation: "Modificar reserva",
   },
 
   en: {
@@ -117,6 +132,20 @@ export const translations = {
     contact: "Contact",
     eventType: "Argentine food event",
     priceInfo: "€20 per person · Advance booking required",
+    reservationCreatedTitle: "Reservation created",
+    reservationAlmostReady: "Your reservation is almost ready!",
+    reservationRegistered:
+    "Your reservation has been registered. To confirm it, complete the payment with Tikkie.",
+    payWithTikkie: "Pay",
+    withTikkie: "with Tikkie",
+    paymentPending: "Current status: payment pending",
+
+    selectDishesTotal: "You must select",
+    dishesInTotal: "dishes in total.",
+    currentlySelected: "You currently selected",
+    stillMissing: "You are missing",
+
+    editReservation: "Modify reservation",
   },
 
   nl: {
@@ -176,7 +205,22 @@ export const translations = {
     contact: "Contact",
     eventType: "Argentijns culinair evenement",
     priceInfo: "€20 per persoon · Vooraf reserveren verplicht",
-  },
+    
+    reservationCreatedTitle: "Reservering aangemaakt",
+    reservationAlmostReady: "Je reservering is bijna klaar! ",
+    reservationRegistered:
+    "Je reservering is geregistreerd. Rond de betaling met Tikkie af om deze te bevestigen.",
+    payWithTikkie: "Betaal",
+    withTikkie: "met Tikkie",
+    paymentPending: "Huidige status: betaling in afwachting",
+
+    selectDishesTotal: "Je moet",
+    dishesInTotal: "gerechten in totaal selecteren.",
+    currentlySelected: "Je hebt momenteel geselecteerd",
+    stillMissing: "Je mist er nog",
+
+    editReservation: "Reservering wijzigen",
+},
 };
 
 export type Translation =
